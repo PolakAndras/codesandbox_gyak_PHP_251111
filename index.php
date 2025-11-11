@@ -62,9 +62,44 @@ Pl.: „Helló, András!”</p>
     print('Kérlek írj valamit a Név mezőbe és küld el');
   }
   ?>
+<hr>
+<p>4. feladat – POST űrlap <br>
 
+Cél: $_POST használata. <br>
+Használat: Adatbekérés biztonságos módon (pl. bejelentkezés, regisztráció).</p>
+<p>Beküldés után írasd ki, hogy a megadott email címmel próbált bejelentkezni.</p>
 </body>
-</html>
-</body>
+
+<form method="post">
+    <label>Email: <input type="email" name="email"></label><br>
+    <label>Jelszó: <input type="password" name="jelszo"></label><br>
+    <button type="submit">Bejelentkezés</button>
+  </form>
+
+  <?php
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   $keys = ['email', 'jelszo'];
+
+    foreach( $keys as $item ) {
+       $$item = $_POST[$item];
+    }
+
+    $errors = false;
+
+    if( !filter_var($email, FILTER_VALIDATE_EMAIL)  ) {
+      print ("Az email cím formátuma nem megfelelő!");
+    } 
+
+    if ( mb_strlen($jelszo) < 3 && mb_strlen($jelszo) > 10 ) {
+      print ("A jelszavaknak 3 és 10 karakter között kell lennie");
+    }
+
+      print ("Az email címed: " . $email);
+      print ("A jelszavad: " . $jelszo);
+    
+  }
+
+
+  ?>
 
 </html>
