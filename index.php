@@ -63,18 +63,14 @@ Pl.: „Helló, András!”</p>
   }
   ?>
 <hr>
-<p>4. feladat – POST űrlap <br>
+<p>4. 5. 6. feladat egyben – POST űrlap <br>
 
 Cél: $_POST használata. <br>
 Használat: Adatbekérés biztonságos módon (pl. bejelentkezés, regisztráció).</p>
 <p>Beküldés után írasd ki, hogy a megadott email címmel próbált bejelentkezni.</p>
-</body>
 
-<form method="post">
-    <label>Email: <input type="email" name="email"></label><br>
-    <label>Jelszó: <input type="password" name="jelszo"></label><br>
-    <button type="submit">Bejelentkezés</button>
-  </form>
+
+
 
   <?php
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -84,22 +80,60 @@ Használat: Adatbekérés biztonságos módon (pl. bejelentkezés, regisztráci�
        $$item = $_POST[$item];
     }
 
-    $errors = false;
+    $errors = [];
 
-    if( !filter_var($email, FILTER_VALIDATE_EMAIL)  ) {
-      print ("Az email cím formátuma nem megfelelő!");
+    //if( !filter_var($email, FILTER_VALIDATE_EMAIL)  ) {
+      if (mb_strlen($email) < 10 || mb_strlen($email) > 10) { //csak tesztelés miatt, hogy benne marad-e az érték
+      $errors['email'] = "Az email cím formátuma nem megfelelő!";
     } 
 
-    if ( mb_strlen($jelszo) < 3 && mb_strlen($jelszo) > 10 ) {
-      print ("A jelszavaknak 3 és 10 karakter között kell lennie");
+    if ( mb_strlen($jelszo) < 3 || mb_strlen($jelszo) > 10 ) {
+      $errors['password'] = "A jelszavaknak 3 és 10 karakter között kell lennie";
     }
 
-      print ("Az email címed: " . $email);
-      print ("A jelszavad: " . $jelszo);
-    
+    if ( !empty($errors) ){
+        echo("<ul>");
+        foreach( $errors as $kulcs => $error) {
+          echo("<li>");
+          print_r($error);
+          echo("</li>");
+        } 
+        echo("</ul>");
+         } else {
+        print ("Az email címed: " . $email);
+        echo("<br>");
+        print ("A jelszavad: " . $jelszo);
+    }
   }
-
-
   ?>
 
+<form method="post">
+    <label>Email: <input type="email" name="email" value="<?php print $email ?? ""; ?>"></label><br>
+    <label>Jelszó: <input type="password" name="jelszo"></label><br>
+    <button type="submit">Bejelentkezés</button>
+  </form>
+  <hr>
+
+  <p>7. feladat – Tömb + űrlap kombináció <br>
+
+ Tömb adatok megjelenítése felhasználói választás alapján. <br>
+ Használat: Szűrők, választók, termékkategóriák listázása.</p>
+ <p>Feladat:
+Ha a felhasználó választ egy gyümölcsöt, jeleníts meg róla egy mondatot (pl. „A banán sárga.”).</p>
+  
+
+<form method="get">
+    <label>Válassz gyümölcsöt:
+      <select name="valasztott">
+        <option value="alma">Alma</option>
+        <option value="banan">Banán</option>
+        <option value="szilva">Szilva</option>
+        <option value="narancs">Narancs</option>
+      </select>
+    </label>
+    <button type="submit">Mutasd</button>
+  </form>
+
+
+</body>
 </html>
