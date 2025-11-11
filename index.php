@@ -49,12 +49,18 @@ Pl.: „Helló, András!”</p>
 <p>GET űrlap gyakorlása</p>
 
   <form method="get">
-    <label>Név: <input type="text" name="nev"></label>
+    <label>Név: <input type="text" name="nev3"></label>
     <button type="submit">Küldés</button>
   </form>
 
   <?php
-  // Ide írd a megoldást
+  $get = $_GET;
+
+  if ( isset($get['nev3']) ) {
+    print('Helló ' . $nev . ' látod az url-ben hogy ott vagy? Remek!');
+  } else {
+    print('Kérlek írj valamit a Név mezőbe és küld el');
+  }
   ?>
 
 </body>
