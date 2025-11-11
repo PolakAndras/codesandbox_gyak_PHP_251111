@@ -57,7 +57,7 @@ Pl.: „Helló, András!”</p>
   $get = $_GET;
 
   if ( isset($get['nev3']) ) {
-    print('Helló ' . $nev . ' látod az url-ben hogy ott vagy? Remek!');
+    print('Helló ' . $get['nev3'] . ' látod az url-ben hogy ott vagy? Remek!');
   } else {
     print('Kérlek írj valamit a Név mezőbe és küld el');
   }
