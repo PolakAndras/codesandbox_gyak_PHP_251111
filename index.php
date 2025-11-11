@@ -20,7 +20,7 @@ Hozz létre három változót ($nev, $kor, $varos) és írasd ki őket egy monda
   <title></title>
 </head>
 <body>
-  <p>1 és 2. Megoldás</p>
+  
 
   <?php
   $nev = "András";
@@ -33,14 +33,14 @@ Hozz létre három változót ($nev, $kor, $varos) és írasd ki őket egy monda
     "varos" => "Budapest"
   ]; 
 
-  echo('Sziasztok, ' . $nev . ' vagyok, ' . $kor . ' éves és ' . $varos . ' élek!');
+  echo('Sziasztok, ' . $nev . ' vagyok, ' . $kor . ' éves és ' . $varos . '-en élek!');
   ?> <br>   
   <?php
   print_r($adatokAssoc); ?> <br> <?php
-  print('Hali, ' . $adatokAssoc['nev'] . ' vagyok, ' . $adatokAssoc['kor']  . ' éves és ' . $adatokAssoc['varos'] . ' élek!')
+  print('Hali, ' . $adatokAssoc['nev'] . ' vagyok, ' . $adatokAssoc['kor']  . ' éves és ' . $adatokAssoc['varos'] . '-en élek!')
   ?>
 <hr>
-<p>3. feladat – Egyszerű űrlap (GET) <br>
+<p>2. feladat – Egyszerű űrlap (GET) <br>
 Cél: $_GET tömb használata. <br>
  Használat: Adatbekérés URL-ből, keresőmezők, szűrők alapja. <br>
 Írasd ki a felhasználó nevét az űrlap beküldése után. <br>
@@ -63,7 +63,7 @@ Pl.: „Helló, András!”</p>
   }
   ?>
 <hr>
-<p>4. 5. 6. feladat egyben – POST űrlap <br>
+<p>3. feladat POST űrlap <br>
 
 Cél: $_POST használata. <br>
 Használat: Adatbekérés biztonságos módon (pl. bejelentkezés, regisztráció).</p>
@@ -114,13 +114,27 @@ Használat: Adatbekérés biztonságos módon (pl. bejelentkezés, regisztráci�
   </form>
   <hr>
 
-  <p>7. feladat – Tömb + űrlap kombináció <br>
+  <p>4. feladat – Tömb + űrlap kombináció <br>
 
  Tömb adatok megjelenítése felhasználói választás alapján. <br>
  Használat: Szűrők, választók, termékkategóriák listázása.</p>
  <p>Feladat:
 Ha a felhasználó választ egy gyümölcsöt, jeleníts meg róla egy mondatot (pl. „A banán sárga.”).</p>
   
+
+<?php
+
+$mondat = [
+  "alma" => "Az alma piros",
+  "banan" => "A banán sárga",
+  "narancs" => "A narancs narancssárga",
+  "szilva" => "A szilva lila"
+];
+
+//print_r($mondat["banán"]);
+//print($mondat['szilva'])
+?>
+
 
 <form method="get">
     <label>Válassz gyümölcsöt:
@@ -131,8 +145,40 @@ Ha a felhasználó választ egy gyümölcsöt, jeleníts meg róla egy mondatot 
         <option value="narancs">Narancs</option>
       </select>
     </label>
-    <button type="submit">Mutasd</button>
+    <button type="submit" name="elkuldve">Mutasd</button>
   </form>
+
+<?php 
+if ( isset($_GET['elkuldve']) ) {
+  //print("hali"); -> mukodik
+  //print ($_GET['valasztott']); //--> kiirja a kivaslztott options
+  print("Amit kiválasztottál az a ". $_GET['valasztott'] . ", és a mondat: "  . $mondat[$_GET['valasztott']]);
+}
+?>
+<hr>
+<p>5. feladat – Tömb feldolgozása függvénnyel <br>
+Cél: Tömbök és függvények kombinálása. <br>
+Használat: Adatok feldolgozása, szűrés, összegzés.</p>
+<p>Írj egy függvényt, ami egy számokat tartalmazó tömböt kap, és visszaadja az összegüket.
+Írasd ki az eredményt.</p>
+
+<?php 
+
+$tomb1 = [4,12,11,10];
+
+
+function osszeg($tomb) {
+  $result = 0;
+  foreach($tomb as $tombelem) {
+    $result += $tombelem ;
+  }
+  print($result);
+}
+
+osszeg($tomb1);
+echo("<br>");
+osszeg([3,12]);
+?>
 
 
 </body>
