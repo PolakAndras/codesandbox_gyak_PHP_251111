@@ -1,0 +1,300 @@
+A következő 10 rövid PHP gyakorlófeladat úgy van felépítve, hogy fokozatosan nehezedjenek — az alapvető kiíratásoktól és űrlapkezeléstől eljutunk az egyszerűbb adatfeldolgozásig, feltételekig és listakezelésig.
+Mindegyikhez tartozik egy rövid magyarázat, HTML-sablon, és egy feladatleírás, de megoldás nélkül (majd csak ha kéred).
+A feladatok CodeSandbox-ban is működnek, tehát nincsenek $_SESSION, adatbázis vagy szerveroldali bonyodalmak.
+
+✅ PHP gyakorlófeladatok (1–10)
+
+(Másolható formában, külön egységekbe rendezve)
+
+1. feladat – Egyszerű kiíratás és változók
+
+📘 Cél: PHP bevezetés, változók és echo használata.
+💡 Használat: Szövegek, számok, és változók kiíratása HTML-ben – minden PHP projekt alapja.
+
+<!-- 1_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>1. feladat - Változók és kiíratás</title>
+</head>
+<body>
+  <h2>PHP változók és kiíratás</h2>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Hozz létre három változót ($nev, $kor, $varos) és írasd ki őket egy mondatban, pl.:
+“Sziasztok, András vagyok, 28 éves és Budapesten élek.”
+
+2. feladat – String összefűzés
+
+📘 Cél: . operátor használata.
+💡 Használat: Dinamikus szövegek építése adatbázisból vagy felhasználói adatokból.
+
+<!-- 2_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>2. feladat - String összefűzés</title>
+</head>
+<body>
+  <h2>String összefűzés gyakorlása</h2>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Két stringet ($elsoNev, $vezetekNev) fűzz össze egy teljes névvé, majd írasd ki.
+
+3. feladat – Egyszerű űrlap (GET)
+
+📘 Cél: $_GET tömb használata.
+💡 Használat: Adatbekérés URL-ből, keresőmezők, szűrők alapja.
+
+<!-- 3_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>3. feladat - GET űrlap</title>
+</head>
+<body>
+  <h2>GET űrlap gyakorlása</h2>
+
+  <form method="get">
+    <label>Név: <input type="text" name="nev"></label>
+    <button type="submit">Küldés</button>
+  </form>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Írasd ki a felhasználó nevét az űrlap beküldése után.
+Pl.: „Helló, András!”
+
+4. feladat – POST űrlap
+
+📘 Cél: $_POST használata.
+💡 Használat: Adatbekérés biztonságos módon (pl. bejelentkezés, regisztráció).
+
+<!-- 4_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>4. feladat - POST űrlap</title>
+</head>
+<body>
+  <h2>POST űrlap gyakorlása</h2>
+
+  <form method="post">
+    <label>Email: <input type="email" name="email"></label><br>
+    <label>Jelszó: <input type="password" name="jelszo"></label><br>
+    <button type="submit">Bejelentkezés</button>
+  </form>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Beküldés után írasd ki, hogy a megadott email címmel próbált bejelentkezni.
+
+5. feladat – Feltétel használata (if)
+
+📘 Cél: Feltételek kezelése.
+💡 Használat: Ellenőrzés, pl. beviteli mező üres-e, jelszó helyes-e, stb.
+
+<!-- 5_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>5. feladat - Feltétel</title>
+</head>
+<body>
+  <h2>Feltételes kiértékelés</h2>
+
+  <form method="post">
+    <label>Korod: <input type="number" name="kor"></label>
+    <button type="submit">Ellenőrzés</button>
+  </form>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Ha a megadott kor 18 vagy több, írd ki: „Felnőtt vagy.”
+Különben: „Még kiskorú vagy.”
+
+6. feladat – Tömbök és foreach
+
+📘 Cél: Tömb létrehozása és bejárása.
+💡 Használat: Adatok (pl. termékek, felhasználók, bejegyzések) megjelenítése listában.
+
+<!-- 6_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>6. feladat - Tömbök</title>
+</head>
+<body>
+  <h2>Tömb bejárása foreach-csel</h2>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Hozz létre egy $gyumolcsok tömböt 4 elemmel, és írasd ki őket listában (<ul><li>).
+
+7. feladat – Tömb + űrlap kombináció
+
+📘 Cél: Tömb adatok megjelenítése felhasználói választás alapján.
+💡 Használat: Szűrők, választók, termékkategóriák listázása.
+
+<!-- 7_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>7. feladat - Tömb és űrlap</title>
+</head>
+<body>
+  <h2>Tömb és űrlap kombinálása</h2>
+
+  <form method="get">
+    <label>Válassz gyümölcsöt:
+      <select name="valasztott">
+        <option value="alma">Alma</option>
+        <option value="banan">Banán</option>
+        <option value="szilva">Szilva</option>
+        <option value="narancs">Narancs</option>
+      </select>
+    </label>
+    <button type="submit">Mutasd</button>
+  </form>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Ha a felhasználó választ egy gyümölcsöt, jeleníts meg róla egy mondatot (pl. „A banán sárga.”).
+
+8. feladat – Egyszerű függvény készítése
+
+📘 Cél: Függvények írása és meghívása.
+💡 Használat: Kód újrahasznosítása, logika elkülönítése a megjelenítéstől.
+
+<!-- 8_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>8. feladat - Függvények</title>
+</head>
+<body>
+  <h2>Egyszerű függvény készítése</h2>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Írj egy koszont($nev) függvényt, ami kiírja: „Szia, [név]!” és hívd meg vele legalább 2 különböző névvel.
+
+9. feladat – Tömb feldolgozása függvénnyel
+
+📘 Cél: Tömbök és függvények kombinálása.
+💡 Használat: Adatok feldolgozása, szűrés, összegzés.
+
+<!-- 9_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>9. feladat - Tömb feldolgozás függvénnyel</title>
+</head>
+<body>
+  <h2>Tömb feldolgozása függvénnyel</h2>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Írj egy függvényt, ami egy számokat tartalmazó tömböt kap, és visszaadja az összegüket.
+Írasd ki az eredményt.
+
+10. feladat – Asszociatív tömb és feltétel
+
+📘 Cél: Kulcs–érték párok kezelése.
+💡 Használat: Felhasználói adatok, konfigurációk, lekérdezések, JSON-kezelés.
+
+<!-- 10_feladat.php -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>10. feladat - Asszociatív tömb</title>
+</head>
+<body>
+  <h2>Asszociatív tömb gyakorlása</h2>
+
+  <?php
+  // Ide írd a megoldást
+  ?>
+
+</body>
+</html>
+
+
+🧩 Feladat:
+Készíts egy $felhasznalo asszociatív tömböt (név, email, életkor).
+Ha az életkor 18 fölött van, írd ki: „Beléphetsz a rendszerbe.”, különben „Még nem léphetsz be.”
