@@ -5,6 +5,7 @@
 </head>
 
 <body>
+  <a href="./feladatok2.php"> Második oldal</a>
 <p>1. feladat – Egyszerű kiíratás és változók</p>
 
 <p>Cél: PHP bevezetés, változók és echo használata.
